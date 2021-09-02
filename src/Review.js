@@ -6,12 +6,12 @@ const Review = () => {
   const [index, setIndex] = useState(0);
   //   console.log(people);
   const { name, job, image, text } = people[index];
-  const nextPerson = () => {
-    setIndex((index) => {
-      let newIndex = index + 1;
-      return checkNumber(newIndex);
-    });
-  };
+  //   const nextPerson = () => {
+  //     setIndex((index) => {
+  //       let newIndex = index + 1;
+  //       return checkNumber(newIndex);
+  //     });
+  //   };
   const checkNumber = (number) => {
     if (number > people.length - 1) {
       return 0;
@@ -21,14 +21,15 @@ const Review = () => {
     return number;
   };
 
-  const prevPerson = () => {
-    setIndex((index) => {
-      let newIndex = index - 1;
-      return checkNumber(newIndex);
-    });
-  };
+  //   const prevPerson = () => {
+  //     setIndex((index) => {
+  //       let newIndex = index - 1;
+  //       return checkNumber(newIndex);
+  //     });
+  //   };
 
   const randomPerson = () => {
+    // eslint-disable-next-line
     let randomNumber = Math.floor(Math.random() * people.length);
     if (randomNumber === index) {
       randomNumber = index + 1;
@@ -48,7 +49,7 @@ const Review = () => {
       <p className="job">{job}</p>
       <p className="info">{text}</p>
       <div className="button-container">
-        <button className="prev-btn" onClick={prevPerson}>
+        <button className="prev-btn" onClick={randomPerson}>
           <FaChevronLeft />
         </button>
         <button className="next-btn" onClick={randomPerson}>
